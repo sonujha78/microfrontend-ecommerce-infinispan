@@ -1,0 +1,32 @@
+<div style="font-family: sans-serif; padding: 16px;">
+  <div style="margin-bottom: 16px;">
+    <button (click)="switchView('checkout')" [disabled]="view() === 'checkout'">Checkout</button>
+    <button (click)="switchView('admin')" [disabled]="view() === 'admin'" style="margin-left: 8px;">Admin</button>
+  </div>
+
+  <div *ngIf="view() === 'checkout'">
+    <h2>Checkout</h2>
+    <p>Shipping address, payment method, and order review would go here.</p>
+    <button style="padding: 8px 16px;">Place Order</button>
+  </div>
+
+  <div *ngIf="view() === 'admin'">
+    <h2>Admin Panel</h2>
+    <table style="border-collapse: collapse; width: 100%;">
+      <thead>
+        <tr>
+          <th style="text-align:left; border-bottom: 1px solid #ccc;">Order ID</th>
+          <th style="text-align:left; border-bottom: 1px solid #ccc;">Total</th>
+          <th style="text-align:left; border-bottom: 1px solid #ccc;">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let o of orders">
+          <td>{{ o.id }}</td>
+          <td>₹{{ o.total }}</td>
+          <td>{{ o.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
