@@ -1,0 +1,25 @@
+.landing-hero {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+}
+.landing-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.landing-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+.landing-hero button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #1e3a8a;
+  cursor: pointer;
+}
