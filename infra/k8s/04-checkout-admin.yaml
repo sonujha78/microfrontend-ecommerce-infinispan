@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkout-admin
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: checkout-admin
+  template:
+    metadata:
+      labels:
+        app: checkout-admin
+    spec:
+      containers:
+        - name: checkout-admin
+          image: localhost:5000/checkout-admin-angular:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkout-admin
+  namespace: ecommerce
+spec:
+  selector:
+    app: checkout-admin
+  ports:
+    - port: 80
+      targetPort: 80

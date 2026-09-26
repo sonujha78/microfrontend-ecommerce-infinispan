@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: host-shell
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: host-shell
+  template:
+    metadata:
+      labels:
+        app: host-shell
+    spec:
+      containers:
+        - name: host-shell
+          image: localhost:5000/host-shell-nextjs:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: host-shell
+  namespace: ecommerce
+spec:
+  selector:
+    app: host-shell
+  ports:
+    - port: 3000
+      targetPort: 3000

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketing-landing
+  namespace: ecommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marketing-landing
+  template:
+    metadata:
+      labels:
+        app: marketing-landing
+    spec:
+      containers:
+        - name: marketing-landing
+          image: localhost:5000/marketing-landing:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: marketing-landing
+  namespace: ecommerce
+spec:
+  selector:
+    app: marketing-landing
+  ports:
+    - port: 80
+      targetPort: 80
