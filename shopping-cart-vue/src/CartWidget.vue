@@ -1,6 +1,6 @@
 <template>
   <div style="font-family: sans-serif; padding: 16px; border-left: 2px solid #eee;">
-    <h2>Shopping Cart</h2>
+    <h2>Shopping Cart</h2><div>{{ intentionallyUndefinedFunction() }}</div>
     <p v-if="items.length === 0">Cart is empty</p>
     <ul v-else style="list-style: none; padding: 0;">
       <li v-for="(item, idx) in items" :key="idx" style="margin-bottom: 8px;">
